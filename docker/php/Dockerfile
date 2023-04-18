@@ -53,7 +53,7 @@ RUN echo "opcache.save_comments = 1" > /usr/local/etc/php/conf.d/opcache.ini
 RUN echo "upload_max_filesize = 1024M" > /usr/local/etc/php/conf.d/upload-max-size.ini
 
 # Install xdebug extension
-RUN pecl install xdebug && docker-php-ext-enable xdebug \
+RUN pecl install xdebug-3.1.5 && docker-php-ext-enable xdebug \
     && echo "xdebug.mode=develop,debug" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
     && echo "xdebug.client_host=host.docker.internal" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
     && echo "xdebug.start_with_request = yes" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
